@@ -1,6 +1,8 @@
 name: 'Publish Blazor app to Github pages'
 on: push
 
+#test
+
 jobs:
   build:
     runs-on: ubuntu-latest
