@@ -17,8 +17,8 @@ jobs:
             dotnet-version: 3.1.x
 
         # Run tests
-        - name: Test
-          run: dotnet test \BlazorWasmGithubPages.Tests\BlazorWasmGithubPages.Tests.csproj
+        #- name: Test
+        #  run: dotnet test \BlazorWasmGithubPages.Tests\BlazorWasmGithubPages.Tests.csproj
 
         # Generate the website
         - name: Publish
