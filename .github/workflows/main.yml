@@ -30,16 +30,16 @@ jobs:
             ls BlazorWasmGithubPages
 
         - name: Install dependencies
-          run: dotnet restore .\BlazorWasmGithubPages\BlazorWasmGithubPages.csproj
+          run: dotnet restore \BlazorWasmGithubPages\BlazorWasmGithubPages.csproj
 
         - name: Build
-          run: dotnet build .\BlazorWasmGithubPages\BlazorWasmGithubPages.csproj --configuration Release --no-restore
+          run: dotnet build \BlazorWasmGithubPages\BlazorWasmGithubPages.csproj --configuration Release --no-restore
 
         - name: Test unit tests and integration tests and coverage
-          run: dotnet test .\BlazorWasmGithubPages.Tests\BlazorWasmGithubPages.Tests.csproj --no-restore --verbosity normal 
+          run: dotnet test \BlazorWasmGithubPages.Tests\BlazorWasmGithubPages.Tests.csproj --no-restore --verbosity normal 
         
         - name: Publish
-          run: dotnet publish --configuration Release --no-build
+          run: dotnet publish \BlazorWasmGithubPages\BlazorWasmGithubPages.csproj --configuration Release --no-build
 
 
         # Publish the website
