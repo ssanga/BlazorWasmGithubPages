@@ -1,6 +1,8 @@
 name: 'Publish Blazor app to Github pages'
 on: push
 
+# https://www.meziantou.net/publishing-a-blazor-webassembly-application-to-github-pages.htm
+
 env:
   
   WEBAPP_PACKAGE_PATH: './published'      # set this to the path to your web app project, defaults to the repository root
