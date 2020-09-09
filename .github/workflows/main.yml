@@ -33,13 +33,13 @@ jobs:
           run: dotnet restore \BlazorWasmGithubPages\
 
         - name: Build
-          run: dotnet build \BlazorWasmGithubPages\BlazorWasmGithubPages\BlazorWasmGithubPages.sln --configuration Release --no-restore
+          run: dotnet build /home/runner/work/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages.csproj --configuration Release --no-restore
 
         - name: Test unit tests and integration tests and coverage
-          run: dotnet test --no-restore --verbosity normal 
+          run: dotnet test /home/runner/work/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages.Tests/BlazorWasmGithubPages.Tests.csproj --no-restore --verbosity normal 
         
         - name: Publish
-          run: dotnet publish --configuration Release --no-build
+          run: dotnet publish /home/runner/work/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages.csproj --configuration Release --no-build
 
 
         # Publish the website
