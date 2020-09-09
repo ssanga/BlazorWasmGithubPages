@@ -1,7 +1,10 @@
 name: 'Publish Blazor app to Github pages'
 on: push
 
-#test
+env:
+  
+  WEBAPP_PACKAGE_PATH: './published'      # set this to the path to your web app project, defaults to the repository root
+  
 
 jobs:
   build:
@@ -39,7 +42,7 @@ jobs:
           run: dotnet test /home/runner/work/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages.Tests/BlazorWasmGithubPages.Tests.csproj --no-restore --verbosity normal 
         
         - name: Publish
-          run: dotnet publish /home/runner/work/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages.csproj --configuration Release
+          run: dotnet publish /home/runner/work/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages.csproj --configuration Release --output ${{ env.WEBAPP_PACKAGE_PATH }}
 
 
         # Publish the website
@@ -49,9 +52,15 @@ jobs:
           with:
             github_token: ${{ secrets.PUBLISH_TOKEN }}
             publish_branch: gh-pages
-            publish_dir: /home/runner/work/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages/BlazorWasmGithubPages/bin/Release/netstandard2.1/wwwroot
+            publish_dir: ${{ env.WEBAPP_PACKAGE_PATH }}
             allow_empty_commit: false
             keep_files: false
             force_orphan: true
             # TODO uncomment the following line if you have a custom domain name
             # cname: demo.meziantou.net
+
+       - name: Upload ${{ env.AZURE_WEBAPP_NAME }} Build Artifact
+         uses: actions/upload-artifact@v2
+         with:
+           name: 'BlazorWasmGithubPages'
+           path: ${{ env.WEBAPP_PACKAGE_PATH }}
