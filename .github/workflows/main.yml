@@ -25,7 +25,9 @@ jobs:
         #  run: dotnet publish BlazorWasmGithubPages.csproj --configuration Release
 
         - name: Whats going on
-          run: ls
+          run: | 
+            ls
+            ls .\BlazorWasmGithubPages\
 
         - name: Install dependencies
           run: dotnet restore .\BlazorWasmGithubPages\BlazorWasmGithubPages.csproj
