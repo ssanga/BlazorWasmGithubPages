@@ -59,7 +59,7 @@ jobs:
             # TODO uncomment the following line if you have a custom domain name
             # cname: demo.meziantou.net
 
-       - name: Upload ${{ env.AZURE_WEBAPP_NAME }} Build Artifact
+       - name: Upload BlazorWasmGithubPages Build Artifact
          uses: actions/upload-artifact@v2
          with:
            name: 'BlazorWasmGithubPages'
