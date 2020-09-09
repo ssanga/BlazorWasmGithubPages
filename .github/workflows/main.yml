@@ -33,7 +33,7 @@ jobs:
           run: dotnet restore \BlazorWasmGithubPages\
 
         - name: Build
-          run: dotnet build --configuration Release --no-restore
+          run: dotnet build \BlazorWasmGithubPages\BlazorWasmGithubPages\BlazorWasmGithubPages.sln --configuration Release --no-restore
 
         - name: Test unit tests and integration tests and coverage
           run: dotnet test --no-restore --verbosity normal 
