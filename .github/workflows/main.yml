@@ -27,7 +27,7 @@ jobs:
         - name: Whats going on
           run: | 
             ls
-            ls .\BlazorWasmGithubPages\
+            ls BlazorWasmGithubPages
 
         - name: Install dependencies
           run: dotnet restore .\BlazorWasmGithubPages\BlazorWasmGithubPages.csproj
